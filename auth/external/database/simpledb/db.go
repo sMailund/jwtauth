@@ -6,7 +6,7 @@ import (
 	"sync"
 )
 
-type Db struct{
+type Db struct {
 	sync.Mutex
 	users map[string]domainEntities.User
 }

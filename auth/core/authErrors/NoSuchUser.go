@@ -15,6 +15,3 @@ func NewNoSuchUserError(name string) *NoSuchUser {
 func (u NoSuchUser) Error() string {
 	return fmt.Sprintf("no user with username %v", u.name)
 }
-
-
-

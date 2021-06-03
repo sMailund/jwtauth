@@ -32,5 +32,3 @@ func main() {
 
 	rest.HandleHttp(privateKey, db)
 }
-
-

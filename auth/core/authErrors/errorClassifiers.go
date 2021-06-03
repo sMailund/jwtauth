@@ -8,3 +8,12 @@ func IsNotFoundError(err error) bool {
 		return false
 	}
 }
+
+func IsIncorrectPasswordError(err error) bool {
+	switch err.(type) {
+	case IncorrectPassword:
+		return true
+	default:
+		return false
+	}
+}
