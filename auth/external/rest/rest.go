@@ -59,11 +59,12 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 	token, err := applicationServices.LoginUser(repo, username, password, privateKey)
 	if err != nil { // TODO improve error handling
-		if authErrors.IsNotFoundError(err) {
+		switch err.(type) {
+		case authErrors.NoSuchUser:
 			http.Error(w, "could not find user", 404)
-		} else if authErrors.IsIncorrectPasswordError(err) {
+		case authErrors.IncorrectPassword:
 			http.Error(w, "incorrect password", 401)
-		} else {
+		default:
 			http.Error(w, "unknown server error", 500)
 		}
 

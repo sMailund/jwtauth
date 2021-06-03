@@ -16,7 +16,6 @@ func hashPassword(password string) (string, error) {
 
 // LoginUser authenticates user with password, and returns a byteslice representing a signed JWT token for the user
 func LoginUser(repository domainServices.IUserRepository, username string, password string, key *rsa.PrivateKey) ([]byte, error) {
-	// TODO: authN user, check password
 	user, err := repository.GetUserByName(username)
 	if err != nil {
 		return nil, authErrors.NewNoSuchUserError(username)

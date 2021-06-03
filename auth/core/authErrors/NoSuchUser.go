@@ -6,10 +6,10 @@ type NoSuchUser struct {
 	name string
 }
 
-func NewNoSuchUserError(name string) *NoSuchUser {
+func NewNoSuchUserError(name string) NoSuchUser {
 	e := new(NoSuchUser)
 	e.name = name
-	return e
+	return *e
 }
 
 func (u NoSuchUser) Error() string {

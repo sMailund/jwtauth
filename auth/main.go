@@ -4,7 +4,7 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"fmt"
-	"github.com/sMailund/jwtauth/auth/core/domainEntities"
+	"github.com/sMailund/jwtauth/auth/core/applicationServices"
 	"github.com/sMailund/jwtauth/auth/external/database/simpledb"
 	"github.com/sMailund/jwtauth/auth/external/grpc/grpcserver"
 	"github.com/sMailund/jwtauth/auth/external/rest"
@@ -21,16 +21,7 @@ func main() {
 
 	db := simpledb.NewDb()
 
-	testUser := domainEntities.User{
-		Name:     "testuser",
-		Id:       "123",
-		Password: "dføasldfjaøsl",
-	}
-
-	err = db.Save(testUser)
-	if err != nil {
-		panic(err)
-	}
+	applicationServices.CreateUser(db, "testuser", "pass")
 
 	fmt.Printf("public key: %v\n", privateKey.Public())
 
