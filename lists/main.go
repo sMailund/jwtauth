@@ -30,17 +30,21 @@ func getAuthPublicKey(client auth.AuthClient) (*rsa.PublicKey, error) {
 }
 
 func main() {
+	fmt.Println("Waiting for connection to auth server...")
 	conn, err := grpc.Dial(authAddress, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	defer conn.Close()
 
+	fmt.Println("Getting public key from auth server...")
 	authClient := auth.NewAuthClient(conn)
 	authKey, err := getAuthPublicKey(authClient)
 	if err != nil {
 		panic(err)
 	}
+
+	_ = conn.Close()
+	fmt.Println("Done.")
 
 	rest.HandleHttp(restPort, authKey)
 }
