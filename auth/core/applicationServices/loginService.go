@@ -32,7 +32,7 @@ func LoginUser(repository domainServices.IUserRepository, username string, passw
 	c.Issuer = "auth server"
 	c.Subject = username
 	c.Set = make(map[string]interface{})
-	c.Set["id"] = user.Id
+	c.Set["uid"] = user.Id
 
 	token, err := c.RSASign(jwt.RS256, key)
 	if err != nil {
