@@ -69,4 +69,3 @@ func TestLoginUserFailedIncorrectUid(t *testing.T) {
 		t.Fatalf("expected error on password1 mismatch %v != %v\n", password1, password2)
 	}
 }
-

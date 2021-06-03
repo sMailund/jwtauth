@@ -117,10 +117,10 @@ func createHandler(w http.ResponseWriter, r *http.Request) {
 	_, _ = w.Write(dao)
 }
 
-func HandleHttp(key *rsa.PrivateKey, userRepo domainServices.IUserRepository) {
+func HandleHttp(port string, key *rsa.PrivateKey, userRepo domainServices.IUserRepository) {
 	privateKey = key
 	repo = userRepo
 	http.HandleFunc("/login/", loginHandler)
 	http.HandleFunc("/create/", createHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 }

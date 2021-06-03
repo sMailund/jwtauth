@@ -6,8 +6,12 @@ import (
 	"fmt"
 	"jwt-auth/auth/core/domainEntities"
 	"jwt-auth/auth/external/database/simpledb"
+	"jwt-auth/auth/external/grpc/authgrpc"
 	"jwt-auth/auth/external/rest"
 )
+
+const grpcPort = ":8888"
+const restPort = ":8080"
 
 func main() {
 	privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
@@ -30,5 +34,6 @@ func main() {
 
 	fmt.Printf("public key: %v\n", privateKey.Public())
 
-	rest.HandleHttp(privateKey, db)
+	go authgrpc.HandleGrpc(grpcPort, &privateKey.PublicKey)
+	rest.HandleHttp(restPort, privateKey, db)
 }
