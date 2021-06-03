@@ -4,9 +4,9 @@ import (
 	"context"
 	"crypto/rsa"
 	"encoding/json"
+	"github.com/sMailund/jwtauth/auth/external/grpc/auth"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/status"
-	"jwt-auth/auth/external/grpc/auth"
 	"log"
 	"net"
 )

@@ -4,10 +4,10 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"fmt"
-	"jwt-auth/auth/core/domainEntities"
-	"jwt-auth/auth/external/database/simpledb"
-	"jwt-auth/auth/external/grpc/grpcserver"
-	"jwt-auth/auth/external/rest"
+	"github.com/sMailund/jwtauth/auth/core/domainEntities"
+	"github.com/sMailund/jwtauth/auth/external/database/simpledb"
+	"github.com/sMailund/jwtauth/auth/external/grpc/grpcserver"
+	"github.com/sMailund/jwtauth/auth/external/rest"
 )
 
 const grpcPort = ":8888"

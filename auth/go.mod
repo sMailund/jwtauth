@@ -1,4 +1,4 @@
-module jwt-auth/auth
+module github.com/sMailund/jwtauth/auth
 
 go 1.16
 

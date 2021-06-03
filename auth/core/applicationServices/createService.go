@@ -3,8 +3,8 @@ package applicationServices
 import (
 	"fmt"
 	"github.com/google/uuid"
-	"jwt-auth/auth/core/domainEntities"
-	"jwt-auth/auth/core/domainServices"
+	"github.com/sMailund/jwtauth/auth/core/domainEntities"
+	"github.com/sMailund/jwtauth/auth/core/domainServices"
 )
 
 // CreateUser creates a new user with a hashed password,

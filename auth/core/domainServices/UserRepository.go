@@ -1,6 +1,6 @@
 package domainServices
 
-import "jwt-auth/auth/core/domainEntities"
+import "github.com/sMailund/jwtauth/auth/core/domainEntities"
 
 type IUserRepository interface {
 	GetUserByName(name string) (domainEntities.User, error)

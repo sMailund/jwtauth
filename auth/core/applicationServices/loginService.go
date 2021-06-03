@@ -4,9 +4,9 @@ import (
 	"crypto/rsa"
 	"fmt"
 	"github.com/pascaldekloe/jwt"
+	"github.com/sMailund/jwtauth/auth/core/authErrors"
+	"github.com/sMailund/jwtauth/auth/core/domainServices"
 	"golang.org/x/crypto/bcrypt"
-	"jwt-auth/auth/core/authErrors"
-	"jwt-auth/auth/core/domainServices"
 )
 
 func hashPassword(password string) (string, error) {

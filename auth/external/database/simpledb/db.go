@@ -2,7 +2,7 @@ package simpledb
 
 import (
 	"fmt"
-	"jwt-auth/auth/core/domainEntities"
+	"github.com/sMailund/jwtauth/auth/core/domainEntities"
 	"sync"
 )
 

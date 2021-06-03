@@ -4,8 +4,8 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"github.com/pascaldekloe/jwt"
-	"jwt-auth/auth/core/domainServices"
-	"jwt-auth/auth/external/database/simpledb"
+	"github.com/sMailund/jwtauth/auth/core/domainServices"
+	"github.com/sMailund/jwtauth/auth/external/database/simpledb"
 	"testing"
 )
 
