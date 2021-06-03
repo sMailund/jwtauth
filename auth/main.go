@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"jwt-auth/auth/core/domainEntities"
 	"jwt-auth/auth/external/database/simpledb"
-	"jwt-auth/auth/external/grpc/authgrpc"
+	"jwt-auth/auth/external/grpc/grpcserver"
 	"jwt-auth/auth/external/rest"
 )
 
@@ -34,6 +34,6 @@ func main() {
 
 	fmt.Printf("public key: %v\n", privateKey.Public())
 
-	go authgrpc.HandleGrpc(grpcPort, &privateKey.PublicKey)
+	go grpcserver.HandleGrpc(grpcPort, &privateKey.PublicKey)
 	rest.HandleHttp(restPort, privateKey, db)
 }
